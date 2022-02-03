@@ -1,0 +1,7 @@
+acme:
+  # Email address used for ACME registration
+  email: sample@email.com
+  # Name of the secret to hold the private key
+  secret: letsencrypt-prod-private-key
+  # ACME server
+  server: https://acme-v02.api.letsencrypt.org/directory

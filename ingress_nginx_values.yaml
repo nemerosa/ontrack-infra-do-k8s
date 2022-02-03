@@ -1,0 +1,5 @@
+controller:
+  service:
+    annotations:
+      # Name of the load balancer
+      service.beta.kubernetes.io/do-loadbalancer-name: ${lb_name}
