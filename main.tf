@@ -134,7 +134,7 @@ resource "helm_release" "cert_manager" {
 
 resource "helm_release" "cert_issuer" {
   name  = "cert-issuer"
-  chart = "./charts/production_issuer"
+  chart = "${path.module}/charts/production_issuer"
 
   depends_on = [
     digitalocean_kubernetes_cluster.cluster,
