@@ -178,6 +178,8 @@ resource "helm_release" "kube-state-metrics" {
     digitalocean_kubernetes_cluster.cluster,
   ]
 
+  namespace = var.do_kube_metrics_namespace
+
   # 10 minutes
   timeout = 600
 

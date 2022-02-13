@@ -48,3 +48,9 @@ variable "do_kube_metrics" {
   default     = false
 }
 
+variable "do_kube_metrics_namespace" {
+  type        = string
+  description = "Namespace for the advanced metrics"
+  default     = "kube-system"
+}
+
