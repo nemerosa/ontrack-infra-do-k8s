@@ -42,3 +42,9 @@ variable "do_acme_server" {
   // For ACME staging, use https://acme-staging-v02.api.letsencrypt.org/directory
 }
 
+variable "do_kube_metrics" {
+  type        = bool
+  description = "Enabling the advanced metrics"
+  default     = false
+}
+

@@ -5,7 +5,7 @@ terraform {
       source  = "digitalocean/digitalocean"
       version = "~> 2.17.1"
     }
-    helm         = {
+    helm = {
       version = "~> 2.4.1"
     }
   }
@@ -160,5 +160,25 @@ resource "helm_release" "cert_issuer" {
     name  = "acme.server"
     value = var.do_acme_server
   }
+
+}
+
+#########################################################################################################
+# Advanced metrics
+#########################################################################################################
+
+resource "helm_release" "kube-state-metrics" {
+  count      = var.do_kube_metrics ? 1 : 0
+  name       = "kube-state-metrics"
+  repository = "https://prometheus-community.github.io/helm-charts"
+  chart      = "kube-state-metrics"
+  version    = "4.5.0"
+
+  depends_on = [
+    digitalocean_kubernetes_cluster.cluster,
+  ]
+
+  # 10 minutes
+  timeout = 600
 
 }
